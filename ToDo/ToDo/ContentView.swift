@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
   @StateObject private var viewModel = ToDoViewModel()
-  
   @State private var newName: String = ""
   
   var body: some View {
@@ -35,16 +34,15 @@ struct ContentView: View {
             Group {
               if item.isOn {
                 Image(systemName: "circle")
-
               }
               else {
                 Image(systemName: "checkmark.circle.fill")
               }
             }
-              .foregroundColor(.blue)
-              .onTapGesture {
-                viewModel.toggle(item)
-              }
+            .foregroundColor(.blue)
+            .onTapGesture {
+              viewModel.toggle(item)
+            }
           }
         }
       }
@@ -85,5 +83,7 @@ struct ToDoItem: Identifiable {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()
+      .preferredColorScheme(.dark)
+    
   }
 }
